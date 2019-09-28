@@ -54,7 +54,7 @@ export default class BaseAPI {
         Utilities.sleep(parseInt(response.getHeaders()['retry-after']));
         continue;
       }
-      return response;
+      return JSON.parse(response.getContentText('UTF-8'));
     }
     throw Error('Try limit over');
   }
